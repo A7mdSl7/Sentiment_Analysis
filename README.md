@@ -1,8 +1,11 @@
 # Twitter Sentiment Analysis - Complete NLP Pipeline & API
 
-A complete sentiment analysis project that processes tweets through the entire NLP pipeline: from data preprocessing and model training to deployment via a REST API.
+A complete sentiment analysis project that processes tweets through the entire NLP pipeline:  
+from **data preprocessing and model training** to **deployment via a REST API with Flask**.
 
-## Table of Contents
+---
+
+## 📌 Table of Contents
 - [Overview](#overview)
 - [Features](#features)
 - [Dataset](#dataset)
@@ -17,93 +20,70 @@ A complete sentiment analysis project that processes tweets through the entire N
 
 ---
 
-## Overview
+## 📖 Overview
+This project implements an end-to-end **NLP pipeline** for sentiment analysis on Twitter data (Sentiment140).  
+It covers:
+1. **Data Preprocessing**: Cleaning, tokenization, lemmatization  
+2. **Feature Engineering**: Bag-of-Words, TF-IDF  
+3. **Model Training**: Logistic Regression, Naive Bayes, Linear SVM  
+4. **Evaluation**: Accuracy, precision, recall, F1-score  
+5. **Deployment**: Flask REST API for real-time predictions  
 
-This project implements a complete NLP pipeline for sentiment analysis on Twitter data. It covers:
-
-1. **Data Preprocessing**: Text cleaning, tokenization, lemmatization
-2. **Feature Engineering**: Bag-of-Words, TF-IDF, POS tagging
-3. **Model Training**: Logistic Regression, Naive Bayes, Linear SVM
-4. **Model Evaluation**: Accuracy, precision, recall, F1-score
-5. **Deployment**: Flask REST API for real-time predictions
-
-The final model achieves **73.6% accuracy** using Logistic Regression with TF-IDF features.
-
----
-
-## Features
-
-- **Comprehensive Text Preprocessing**
-  - URL, mention, and hashtag removal
-  - Emoji handling
-  - Lemmatization with spaCy
-  - Stopword removal
-
-- **Multiple Text Representations**
-  - Bag-of-Words (CountVectorizer)
-  - TF-IDF (Term Frequency-Inverse Document Frequency)
-  - POS tag features (nouns, verbs, adjectives)
-
-- **Model Comparison**
-  - Logistic Regression
-  - Multinomial Naive Bayes
-  - Linear SVM
-
-- **Production-Ready API**
-  - Single and batch predictions
-  - Error handling and input validation
-  - Clean JSON responses
+The best model achieves **73.6% accuracy** using **Logistic Regression + TF-IDF**.
 
 ---
 
-## Dataset
-
-**Sentiment140 Twitter Dataset**
-- **Source**: [Stanford Sentiment140](http://help.sentiment140.com/for-students/)
-- **Size**: 1.6M tweets (20K sample used for training)
-- **Classes**: Binary classification (positive/negative)
-- **Features**: Tweet text with sentiment labels
-
-The dataset contains real tweets with typical social media characteristics:
-- User mentions (@username)
-- Hashtags (#topic)
-- URLs
-- Emojis and emoticons
-- Informal language
+## ✨ Features
+- Comprehensive text preprocessing (URLs, mentions, hashtags, emojis, stopwords, lemmatization with spaCy).  
+- Multiple feature extraction methods (**BoW**, **TF-IDF**).  
+- Comparison between classic ML models (LogReg, Naive Bayes, SVM).  
+- Deployable as a **Flask API** with a simple web GUI.  
 
 ---
 
-## Project Structure
+## 📊 Dataset
+- **Sentiment140 Twitter Dataset**: 1.6M tweets labeled positive/negative.  
+- In this project: **20K sample** used for training and evaluation.  
+- Classes: **Binary classification** → positive / negative.  
+
+---
+
+## 📂 Project Structure
+
 
 ```
-twitter-sentiment-analysis/
+sentiment-analysis-app/
 │
-├── NLP_task.ipynb              # Complete training notebook
-├── app.py                      # Flask API application
-├── sentiment_model.pkl         # Trained model pipeline
-├── requirements.txt            # Python dependencies
-├── test_api.py                 # API testing script
-└── README.md                   # This file
+├── app.py                             # Flask API with GUI
+├── README.md                          # Documentation
+├── sentiment_model.pkl                # Trained model pipeline
+├── requirements.txt                   # Dependencies
+├── sentiment_model.pkl                # API testing script
+└── Twitter Sentiment Analysis.ipynb   # Full notebook workflow
 ```
 
 ---
 
-## Installation
+## ⚙️ Installation
 
 ### Prerequisites
 - Python 3.8+
 - pip package manager
 
-### Step 1: Clone the Repository
+### 1. Clone the Repository
 ```bash
-git clone <repository-url>
-cd twitter-sentiment-analysis
+git clone https://github.com/A7mdSl7/sentiment-analysis-app.git
+cd sentiment-analysis-app
+
 ```
 
 ### Step 2: Create Virtual Environment (Recommended)
 ```bash
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+# Windows
+venv\Scripts\activate
+# Linux/Mac
+source venv/bin/activate
 ```
 
 ### Step 3: Install Dependencies
@@ -111,21 +91,24 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### Step 4: Download spaCy Language Model
-```bash
+### Requirements.txt
+```txt
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+nltk
+spacy
+emoji
+flask
+joblib
 python -m spacy download en_core_web_sm
 ```
 
-### Requirements.txt
-```txt
-flask==3.0.0
-scikit-learn==1.3.2
-spacy==3.7.2
-joblib==1.3.2
-numpy==1.24.3
-pandas==2.1.3
-nltk==3.8.1
-emoji==2.8.0
+### Step 4: Download spaCy Language Model
+```
+python -m spacy download en_core_web_sm
 ```
 
 ---
