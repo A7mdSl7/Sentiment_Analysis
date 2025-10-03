@@ -1,0 +1,11 @@
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+nltk
+spacy
+emoji
+flask
+joblib
+python -m spacy download en_core_web_sm
